@@ -38,24 +38,23 @@ public class MutantController {
 		try {
 			if( (isMutant = mutantService.isMutant(person.getDna())) ) {
 				response = (ResponseEntity<Object>) ResponseEntity.status(HttpStatus.OK).body(null);
-			}
+			} 
+			//Persist DNA
+			repo.save(new Person(person.getDna()));
+			
+			//Send Notificacion to stats services
+			messageSender.sendMessage(new Message(true,isMutant));
 		} catch (InvalidMatrixException e) {
 			// TODO Auto-generated catch block
 			log.error(e.getMessage());
 		}
 		
-		//Persist DNA
-		repo.save(new Person(person.getDna()));
-		
-		//Send Notificacion to stats services
-		messageSender.sendMessage(new Message(true,isMutant));
-		
+			
 		return response;
     }
 	
 	@RequestMapping(value = "/mutant", method = RequestMethod.GET)
     ResponseEntity<Object> getAll() {
-		new ResponseEntity<Object>(null);
 		return ResponseEntity.status(HttpStatus.OK).body(repo.findAll());
    }
 	
