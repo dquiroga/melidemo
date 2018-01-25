@@ -1,7 +1,7 @@
 # Examen Mercadolibre 
 
 ## Introduccion
-Este proyecto es un desarrollo realizado como parte del proceso de selección de personal de [Mercadolinre](http://mercadolibre.com).
+Este proyecto es un desarrollo realizado como parte del proceso de selección de personal de [Mercadolibre](http://mercadolibre.com).
 
 Para dar con la solucion requerida y teniendo en cuenta los requerimientos tantos funcionales como los no funcionales, se desarrollaron tres aplicaciónes:
 
@@ -27,7 +27,7 @@ Dentro de cada uno de las aplicaciones bajo la ruta src/main/resources podra enc
 >  Puede agregar su propio properties creando, por ejemplo, appliaction-local.properties modificando las variables que necesite. Al momento de correr la aplicacion debera determinar el entorno para asi tomar sus variables.Más documentación     [aquí](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html).
 
 ### Probar Aplicaciónes
-Para poder probar cada una de las aplicaciones debera realizar los ingresar a cada uno de los directorios de las distintas applicaciones ejecutar 
+Para poder probar cada una de las aplicaciones debera ingresar a cada uno de los directorios de las distintas applicaciones ejecutar 
 
 ```sh
 $ mvn spring-boot:run
@@ -38,9 +38,15 @@ Por ejemplo:
 $ cd MeLi-Gateway
 $ mvn spring-boot:run
 ```
+Luego de ejecutar podra consumir la api apuntando a http://localhost:8888. 
+
+| VERBO | URL                    |
+|-------| -----------------------| 
+| GET   | localhost:8888/stats   |
+| POST  | localhost:8888/mutant/ |
 
 ### Demo
-Para poder probar la aplicación sin necesidad de descargar el codigo fuente puede hacerlo desde: http://35.229.70.0:8888
+Para poder probar la aplicación sin necesidad de descargar el código fuente puede hacerlo desde: http://35.229.70.0:8888
 
 Ejemplos en curl:
 
@@ -58,7 +64,7 @@ Algunas de esas mejoras pueden ser:
 
 ## Aclaraciones
 
-Para el caso de la persistencia de las estadisticas, que se generar al momento de procesar los ADNs y agrupan por fecha ya que podría solicitarse diferentes agrupamientos, Por ejemplo, mes, dia o año. Y en tal caso podriamos hacerlo con solo agregar un nuevo endpoint o modificar el actual.
+Para el caso de la persistencia de las estadisticas, que se generar al momento de procesar los ADNs. Estas se agrupan por fecha ya que podría solicitarse diferentes agrupamientos. Por ejemplo, mes, dia o año. Y en tal caso podriamos hacerlo con solo agregar un nuevo endpoint o modificar el actual.
 
 **MUCHAS GRACIAS!**
 
