@@ -44,7 +44,7 @@ public class GatewayController {
  		return response;
      }
  	
- 	@HystrixCommand(fallbackMethod = "defaultError")
+ 	@HystrixCommand(fallbackMethod = "defaultStatsError")
  	@RequestMapping(value = "/stats", method = RequestMethod.GET)
     ResponseEntity<String> getStats() {
  		String url = statsUrl+"stats";
